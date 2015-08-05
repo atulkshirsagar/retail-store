@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0DEADE41B7020A800087358 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C0DEADE31B7020A800087358 /* Settings.bundle */; };
 		C0F157121B6FF8680055A39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F157111B6FF8680055A39E /* AppDelegate.swift */; };
 		C0F157141B6FF8680055A39E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F157131B6FF8680055A39E /* ViewController.swift */; };
 		C0F157171B6FF8680055A39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F157151B6FF8680055A39E /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0DEADE31B7020A800087358 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		C0F1570E1B6FF8680055A39E /* Retail Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F157111B6FF8680055A39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F157131B6FF8680055A39E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		C0F157101B6FF8680055A39E /* Retail Store */ = {
 			isa = PBXGroup;
 			children = (
+				C0DEADE31B7020A800087358 /* Settings.bundle */,
 				C0F157111B6FF8680055A39E /* AppDelegate.swift */,
 				C0F157131B6FF8680055A39E /* ViewController.swift */,
 				C0F157151B6FF8680055A39E /* Main.storyboard */,
@@ -192,6 +195,12 @@
 				TargetAttributes = {
 					C0F1570D1B6FF8680055A39E = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 3UL47MK777;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					C0F157211B6FF8690055A39E = {
 						CreatedOnToolsVersion = 7.0;
@@ -228,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DEADE41B7020A800087358 /* Settings.bundle in Resources */,
 				C0F1571C1B6FF8690055A39E /* LaunchScreen.storyboard in Resources */,
 				C0F157191B6FF8690055A39E /* Assets.xcassets in Resources */,
 				C0F157171B6FF8680055A39E /* Main.storyboard in Resources */,
@@ -398,7 +408,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Retail Store/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cisco.Retail-Store";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,7 +421,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Retail Store/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cisco.Retail-Store";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,6 +497,7 @@
 				C0F157381B6FF8690055A39E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F157391B6FF8690055A39E /* Build configuration list for PBXNativeTarget "Retail StoreTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +506,7 @@
 				C0F1573B1B6FF8690055A39E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F1573C1B6FF8690055A39E /* Build configuration list for PBXNativeTarget "Retail StoreUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +515,7 @@
 				C0F1573E1B6FF8690055A39E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

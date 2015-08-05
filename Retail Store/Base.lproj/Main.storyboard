@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Retail_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,77 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacon Details: Not Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIV-TC-VNq">
+                                <rect key="frame" x="16" y="159" width="568" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="VcC-Bs-ryt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <color key="textColor" red="0.2039215714" green="0.28627452250000002" blue="0.36862745879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey6-6m-ZSf">
+                                <rect key="frame" x="229" y="475" width="142" height="45"/>
+                                <color key="backgroundColor" red="0.71640252092891532" green="0.87917839788836172" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Sw3-as-lvF"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                                <state key="normal" title="Search Beacons">
+                                    <color key="titleColor" red="0.097959353690000001" green="0.1292237503" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TAc-ek-d78"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not running" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d3-hG-cXg">
+                                <rect key="frame" x="16" y="536" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ycS-Qa-Ch5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.2039215714" green="0.28627452250000002" blue="0.36862745879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cisco Retail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hf-Ho-Lzo">
+                                <rect key="frame" x="229" y="28" width="141" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="OcS-DI-a9T"/>
+                                    <constraint firstAttribute="width" constant="141" id="v80-Je-FnZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="34"/>
+                                <color key="textColor" red="0.097959353694816897" green="0.12922375032273026" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0d3-hG-cXg" firstAttribute="top" secondItem="ey6-6m-ZSf" secondAttribute="bottom" constant="16" id="0TM-j1-QcV"/>
+                            <constraint firstItem="ey6-6m-ZSf" firstAttribute="centerX" secondItem="WIV-TC-VNq" secondAttribute="centerX" id="50D-xJ-R5W"/>
+                            <constraint firstItem="0d3-hG-cXg" firstAttribute="centerX" secondItem="ey6-6m-ZSf" secondAttribute="centerX" id="Jsc-Xe-zFT"/>
+                            <constraint firstItem="0d3-hG-cXg" firstAttribute="trailing" secondItem="WIV-TC-VNq" secondAttribute="trailing" id="KNO-3H-k7T"/>
+                            <constraint firstItem="0d3-hG-cXg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NDr-eL-foU"/>
+                            <constraint firstItem="2hf-Ho-Lzo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Wxi-Wo-Bxh"/>
+                            <constraint firstItem="WIV-TC-VNq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-4" id="Xvn-Sm-fiT"/>
+                            <constraint firstItem="2hf-Ho-Lzo" firstAttribute="centerX" secondItem="WIV-TC-VNq" secondAttribute="centerX" id="eI7-mC-QVN"/>
+                            <constraint firstItem="2hf-Ho-Lzo" firstAttribute="leading" secondItem="ey6-6m-ZSf" secondAttribute="leading" id="f1J-ks-XlX"/>
+                            <constraint firstItem="WIV-TC-VNq" firstAttribute="top" secondItem="2hf-Ho-Lzo" secondAttribute="bottom" constant="68" id="gbE-IX-J9Y"/>
+                            <constraint firstItem="0d3-hG-cXg" firstAttribute="leading" secondItem="WIV-TC-VNq" secondAttribute="leading" id="gta-UD-b5k"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0d3-hG-cXg" secondAttribute="bottom" constant="43" id="ruT-lR-wha"/>
+                            <constraint firstItem="0d3-hG-cXg" firstAttribute="centerX" secondItem="WIV-TC-VNq" secondAttribute="centerX" id="sAW-YB-BWc"/>
+                            <constraint firstItem="2hf-Ho-Lzo" firstAttribute="centerX" secondItem="WIV-TC-VNq" secondAttribute="centerX" id="y3G-9D-epZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnSwitchSearch" destination="ey6-6m-ZSf" id="ZuX-V6-rHm"/>
+                        <outlet property="lblDetails" destination="WIV-TC-VNq" id="Onu-cM-1XV"/>
+                        <outlet property="lblStatus" destination="0d3-hG-cXg" id="0Pl-t3-RVh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="276" y="267"/>
         </scene>
     </scenes>
 </document>
