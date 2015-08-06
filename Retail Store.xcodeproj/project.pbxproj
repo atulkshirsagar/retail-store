@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C0DEADE41B7020A800087358 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C0DEADE31B7020A800087358 /* Settings.bundle */; };
+		C0ED05C51B72D522005A0ACE /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0ED05C41B72D522005A0ACE /* Defaults.plist */; };
 		C0F157121B6FF8680055A39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F157111B6FF8680055A39E /* AppDelegate.swift */; };
 		C0F157141B6FF8680055A39E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F157131B6FF8680055A39E /* ViewController.swift */; };
 		C0F157171B6FF8680055A39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F157151B6FF8680055A39E /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		C0DEADE31B7020A800087358 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
+		C0ED05C41B72D522005A0ACE /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		C0F1570E1B6FF8680055A39E /* Retail Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F157111B6FF8680055A39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F157131B6FF8680055A39E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				C0F157181B6FF8690055A39E /* Assets.xcassets */,
 				C0F1571A1B6FF8690055A39E /* LaunchScreen.storyboard */,
 				C0F1571D1B6FF8690055A39E /* Info.plist */,
+				C0ED05C41B72D522005A0ACE /* Defaults.plist */,
 			);
 			path = "Retail Store";
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			files = (
 				C0DEADE41B7020A800087358 /* Settings.bundle in Resources */,
 				C0F1571C1B6FF8690055A39E /* LaunchScreen.storyboard in Resources */,
+				C0ED05C51B72D522005A0ACE /* Defaults.plist in Resources */,
 				C0F157191B6FF8690055A39E /* Assets.xcassets in Resources */,
 				C0F157171B6FF8680055A39E /* Main.storyboard in Resources */,
 			);

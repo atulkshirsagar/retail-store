@@ -30,21 +30,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var lastProximity: CLProximity! = CLProximity.Unknown
     
     //application settings
+    var appDefaults = Dictionary<String, AnyObject>()
+    var uuidVal: String? = nil
+    var serverUrl: String? = nil
     let uuid_pref = "uuid_preference"
     let serverurl_pref = "serverurl_preference"
-    var serverUrl: String? = nil
+    
+    func getUserPreference(forKey: String) -> AnyObject {
+        return NSUserDefaults.standardUserDefaults().objectForKey(forKey)!
+    }
     
     func getAppSettings() {
-        
         //get app settings
-        var appDefaults = Dictionary<String, AnyObject>()
-
-        appDefaults[uuid_pref] = "7C34D9A1-A7F1-4D79-AF82-7D8470094418"
-        appDefaults[serverurl_pref] = "http://localhost:9090/car/"
+//        appDefaults["uuid_preference"] = "7C34D9A1-A7F1-4D79-AF82-7D8470094418"
+//        appDefaults["serverurl_preference"] = "http://localhost:9090/car/"
+        if let path = NSBundle.mainBundle().pathForResource("Defaults", ofType: "plist") {
+            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject> {
+                appDefaults = dict
+            }
+        }
         
         NSUserDefaults.standardUserDefaults().registerDefaults(appDefaults)
+        
+        uuidVal = getUserPreference(uuid_pref) as? String
+        serverUrl = getUserPreference(serverurl_pref) as? String
+        
         NSUserDefaults.standardUserDefaults().synchronize()
         
+    }
+    
+    func observeSettings(notification: NSNotification) {
+          print("observeSettings() called, \(notification)");
     }
 
     override func viewDidLoad() {
@@ -59,7 +75,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         
         getAppSettings()
-        let uuidVal = NSUserDefaults.standardUserDefaults().stringForKey(uuid_pref);
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: ("observeSettings"), name: NSUserDefaultsDidChangeNotification, object: nil)
         
         let uuid = NSUUID(UUIDString: uuidVal!)
         if (uuid != nil) {
@@ -78,8 +95,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             btnSwitchSearch.enabled = false //disable search button
         }
-        
-//        sendToserver()
 
     }
     
@@ -144,7 +159,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //        {
             if foundBeacons.count > 0 {
                 if let closestBeacon = foundBeacons[0] as? CLBeacon {
-                    if closestBeacon != lastFoundBeacon || lastProximity != closestBeacon.proximity  {
+                    if closestBeacon.proximityUUID.UUIDString != lastFoundBeacon.proximityUUID.UUIDString
+                        || closestBeacon.major != lastFoundBeacon.major
+                        || closestBeacon.minor != lastFoundBeacon.minor
+                        || lastProximity != closestBeacon.proximity  {
+                        
+                        print("closestBeacon: \(closestBeacon) lastFoundBeacon \(lastFoundBeacon) lastProximity: \(lastProximity!)")
+                            
                         lastFoundBeacon = closestBeacon
                         lastProximity = closestBeacon.proximity
                         
@@ -152,8 +173,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         switch lastFoundBeacon.proximity {
                         case CLProximity.Immediate:
                             proximityMessage = "Very close"
-                            let data = ["proximity": proximityMessage] as Dictionary<String, String>
-                            sendToserver(data)
                             
                         case CLProximity.Near:
                             proximityMessage = "Near"
@@ -201,31 +220,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //locationmanager
     
     //server comm
-//    func updateServer() {
-//        let serverurlVal = NSUserDefaults.standardUserDefaults().stringForKey(serverurl_pref)
-//        var request = NSMutableURLRequest(URL: NSURL(string: serverurlVal!)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
-//        var response: NSURLResponse?
-//        var err: NSError?
-//        
-//        // create some JSON data and configure the request
-//        let jsonString = "json=[{\"str\":\"Hello\",\"num\":1},{\"str\":\"Goodbye\",\"num\":99}]"
-//        var params = ["username":"jameson", "password":"password"] as Dictionary<String, String>
-//        let options: NSJSONWritingOptions = NSJSONWritingOptions()
-//        request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-//        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
-//        request.HTTPMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        // send the request
-//        var dataVal: NSData =  try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-//        
-//        // look at the response
-//        if let httpResponse = response as? NSHTTPURLResponse {
-//            print("HTTP response: \(httpResponse.statusCode)")
-//        } else {
-//            print("No HTTP response")
-//        }
-//    }
     
     func eventPaylod(eventdata: Dictionary<String, String>) -> Dictionary<String, String> {
         var evt = Dictionary<String, String>();
@@ -237,8 +231,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func sendToserver(params: Dictionary<String, String>) {
-        let url = NSUserDefaults.standardUserDefaults().stringForKey(serverurl_pref)!
-        post(params, url: url)
+        let url = getUserPreference(serverurl_pref) as? String
+        post(params, url: url!)
     }
     
     func post(params : Dictionary<String, String>, url : String) {
